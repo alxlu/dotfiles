@@ -1,25 +1,25 @@
 - clean: ['~']
 
 - link:
-    ~/.aliases: .aliases
-    ~/.bash_profile: .bash_profile
-    ~/.bash_prompt: .bash_prompt
-    ~/.bashrc: .bashrc
-    ~/.curlrc: .curlrc
-    ~/.editorconfig: .editorconfig
-    ~/.exports: .exports
-    ~/.functions: .functions
-    ~/.gitconfig: .gitconfig
-    ~/.gitignore: .gitignore_global
-    ~/.gvimrc: .gvimrc
-    ~/.hushlogin: .hushlogin
-    ~/.inputrc: .inputrc
-    ~/.platform: platforms/.platform_osx
-    ~/.screenrc: .screenrc
-    ~/.tmux.conf: .tmux.conf
-    ~/.vim: .vim/
-    ~/.vimrc: .vimrc
-    ~/.wgetrc: .wgetrc
+    ~/.aliases: homedir/aliases
+    ~/.bash_profile: homedir/bash_profile
+    ~/.bash_prompt: homedir/bash_prompt
+    ~/.bashrc: homedir/bashrc
+    ~/.curlrc: homedir/curlrc
+    ~/.editorconfig: homedir/editorconfig
+    ~/.exports: homedir/exports
+    ~/.functions: homedir/functions
+    ~/.gitconfig: homedir/gitconfig
+    ~/.gitignore: homedir/gitignore_global
+    ~/.gvimrc: homedir/gvimrc
+    ~/.hushlogin: homedir/hushlogin
+    ~/.inputrc: homedir/inputrc
+    ~/.platform: homedir/platforms/platform_osx
+    ~/.screenrc: homedir/screenrc
+    ~/.tmux.conf: homedir/tmux.conf
+    ~/.vim: homedir/vim/
+    ~/.vimrc: homedir/vimrc
+    ~/.wgetrc: homedir/wgetrc
 
 #- shell:
 #  - git update-submodules # after linking ~/.gitconfig
