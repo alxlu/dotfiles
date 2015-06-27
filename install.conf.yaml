@@ -10,10 +10,10 @@
     ~/.exports: .exports
     ~/.functions: .functions
     ~/.gitconfig: .gitconfig
-    ~/.gitignore: .gitignore
+    ~/.gitignore: .gitignore_global
     ~/.gvimrc: .gvimrc
-    ~/hushlogin: .hushlogin
-    ~/inputrc: .inputrc
+    ~/.hushlogin: .hushlogin
+    ~/.inputrc: .inputrc
     ~/.screenrc: .screenrc
     ~/.tmux.conf: .tmux.conf
     ~/.vim: .vim/
