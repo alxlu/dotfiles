@@ -1,106 +1,106 @@
-" Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
-
-" Make Vim more useful
+"Turn off compatability mode
 set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
+filetype off
+filetype plugin indent on
+
+"Shows current typed command
+set showcmd
+
+"Set autoindentt
+set autoindent
+
+"Tab completion
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
+set wildmode=list:longest,full
+
+"Optimize for fast terminal connections
 set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
+
+"Enable mouse support
+set mouse=a
+
+"Show line numbers
+set number
+
+"Don't add empty newlines at end of files
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
 
-" Don’t create backups when editing files in certain directories
+"Don't create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
 
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
+"Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable line numbers
-set number
-" Enable syntax highlighting
-syntax on
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
+
+"Remove buffer when closed
+set nohidden
+
+"Status line information
 set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
+set statusline=%F%m%r%h%w\ (%{&ff}){%Y}\ [%l,%v][%p%%]
+
+"Syntax highlighting
+filetype plugin indent on
+syntax on
+set background=dark
+
+"Color scheme
+colorscheme seoul256
+
+"Highlight current line
+set cul
+
+"Set tabs
+set expandtab
+"set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+"Ignore case of searches
+set ignorecase
+
+"Highlight dynamically as pattern is typed
+set incsearch
+
+"Show invisible characters
+set lcs=tab:▸\ ,trail:·,nbsp:_
+set list
+
 " Show the cursor position
 set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
+
+"Show the current mode
 set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
+
+"Show the (partial) command as it's being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+"Allow deleting previous items and indents
+set backspace=indent,eol,start
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
+"Find path settings
+set path=$PWD/**
+
+" show trailing spaces as dots
+set listchars+=trail:·
+
+"Key remaps
+nnoremap <C-Q> <C-L>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"Change split behavior
+set splitbelow
+set splitright
+
+"ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"ctrlp only searches working directory
+let g:ctrlp_working_path_mode = 0
+
+"ignore certain directories and files
+set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
