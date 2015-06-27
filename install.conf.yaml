@@ -1,0 +1,23 @@
+- clean: ['~']
+
+- link:
+  ~/.aliases: .aliases
+  ~/.bash_profile: .bash_profile
+  ~/.bashrc: .bashrc
+  ~/.curlrc: .curlrc
+  ~/.editorconfig: .editorconfig
+  ~/.exports: .exports
+  ~/.functions: .functions
+  ~/.gitconfig: .gitconfig
+  ~/.gitignore: .gitignore
+  ~/.gvimrc: .gvimrc
+  ~/hushlogin: .hushlogin
+  ~/inputrc: .inputrc
+  ~/.screenrc: .screenrc
+  ~/.tmux.conf: .tmux.config
+  ~/.vim: .vim/
+  ~/.vimrc: .vimrc
+  ~/.wgetrc: .wgetrc
+
+#- shell:
+#  - git update-submodules # after linking ~/.gitconfig
