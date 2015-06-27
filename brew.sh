@@ -93,7 +93,7 @@ brew install tmux
 #fzf
 brew reinstall --HEAD fzf
 # Install shell extensions
-/usr/local/Cellar/fzf/HEAD/install
+# /usr/local/Cellar/fzf/HEAD/install
 
 # Install other useful binaries.
 brew install ack
