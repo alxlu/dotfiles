@@ -14,6 +14,7 @@
     ~/.gvimrc: .gvimrc
     ~/.hushlogin: .hushlogin
     ~/.inputrc: .inputrc
+    ~/.platform: platforms/.platform_osx
     ~/.screenrc: .screenrc
     ~/.tmux.conf: .tmux.conf
     ~/.vim: .vim/
