@@ -139,3 +139,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# encrypt and decrypt
+alias enc="openssl aes-256-cbc -a"
+alias denc="openssl aes-256-cbc -d -a"
