@@ -7,8 +7,8 @@
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles
-./install.sh
+git clone https://github.com/alxlu/dotfiles.git && cd dotfiles
+./install
 ```
 
 ### Add custom commands without creating a new fork
