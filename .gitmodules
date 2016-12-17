@@ -1,3 +1,21 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "homedir/vim/bundle/vim-pathogen"]
+	path = homedir/vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "homedir/vim/bundle/ctrlp.vim"]
+	path = homedir/vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "homedir/vim/bundle/vim-speeddating"]
+	path = homedir/vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating
+[submodule "homedir/vim/bundle/utl.vim"]
+	path = homedir/vim/bundle/utl.vim
+	url = https://github.com/vim-scripts/utl.vim
+[submodule "homedir/vim/bundle/SyntaxRange"]
+	path = homedir/vim/bundle/SyntaxRange
+	url = https://github.com/vim-scripts/SyntaxRange
+[submodule "homedir/vim/bundle/vim-orgmode"]
+	path = homedir/vim/bundle/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode

@@ -1,3 +1,7 @@
+"Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 "Turn off compatability mode
 set nocompatible
 filetype off
@@ -97,10 +101,17 @@ set splitbelow
 set splitright
 
 "ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 "ctrlp only searches working directory
 let g:ctrlp_working_path_mode = 0
 
 "ignore certain directories and files
 set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
+
+"js syntax
+":autocmd Syntax * call SyntaxRange#Include('@begin=js@', '@end=js@', 'javascript', 'NonText')
+":autocmd Syntax * call SyntaxRange#Include('@begin=bash@', '@end=bash@', 'sh', 'NonText')
+
+"orgmode agenda
+let g:org_agenda_files = ['~/Dropbox/orgmode/*.org']
