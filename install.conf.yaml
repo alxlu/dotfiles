@@ -14,7 +14,6 @@
     ~/.gvimrc: homedir/gvimrc
     ~/.hushlogin: homedir/hushlogin
     ~/.inputrc: homedir/inputrc
-    ~/.platform: homedir/platforms/platform_osx
     ~/.screenrc: homedir/screenrc
     ~/.tmux.conf: homedir/tmux.conf
     ~/.vim: homedir/vim/

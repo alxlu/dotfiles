@@ -1,4 +1,0 @@
-if [ -e /dev/clipboard ]; then
-  alias pbcopy='cat >/dev/clipboard'
-  alias pbpaste='cat /dev/clipboard'
-fi
