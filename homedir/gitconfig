@@ -166,3 +166,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	email = alxlu@users.noreply.github.com
+	name = Alex Lu
