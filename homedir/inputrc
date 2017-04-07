@@ -38,3 +38,7 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
+
+# Menu Complete (make sure bash is at least 4.x)
+"\t": menu-complete
+"\e[Z": menu-complete-backward
