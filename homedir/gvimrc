@@ -13,3 +13,5 @@ set guioptions-=r
 set guioptions-=L
 " Autoread
 set autoread
+" No Swap Files
+set noswapfile
