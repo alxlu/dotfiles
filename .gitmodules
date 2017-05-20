@@ -12,7 +12,7 @@
 	url = https://github.com/tpope/vim-speeddating
 [submodule "homedir/vim/bundle/utl.vim"]
 	path = homedir/vim/bundle/utl.vim
-	url = https://github.com/vim-scripts/utl.vim
+	url = https://github.com/alxlu/utl.vim
 [submodule "homedir/vim/bundle/SyntaxRange"]
 	path = homedir/vim/bundle/SyntaxRange
 	url = https://github.com/vim-scripts/SyntaxRange
