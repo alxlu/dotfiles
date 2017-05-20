@@ -6,7 +6,7 @@
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -17,7 +17,8 @@ brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+# brew install gnu-sed --with-default-names
+brew install gnu-sed
 
 # Install Bash 4.
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
@@ -52,10 +53,10 @@ brew install homebrew/dupes/screen
 # brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
-brew tap bramstein/webfonttools
-brew install sfnt2woff
-brew install sfnt2woff-zopfli
-brew install woff2
+# brew tap bramstein/webfonttools
+# brew install sfnt2woff
+# brew install sfnt2woff-zopfli
+# brew install woff2
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 # brew install aircrack-ng
@@ -72,7 +73,7 @@ brew install woff2
 # brew install john
 # brew install knock
 # brew install netpbm
-# brew install nmap
+brew install nmap
 # brew install pngcheck
 # brew install socat
 # brew install sqlmap
@@ -95,24 +96,42 @@ brew reinstall --HEAD fzf
 # /usr/local/Cellar/fzf/HEAD/install
 
 # Install other useful binaries.
-brew install ack
-brew install dark-mode
+# brew install ack
+# brew install dark-mode
 #brew install exiv2
 brew install git
-brew install git-lfs
+# brew install git-lfs
 brew install imagemagick --with-webp
 # brew install lua
-brew install lynx
-brew install p7zip
-brew install pigz
+# brew install lynx
+# brew install p7zip
+# brew install pigz
 brew install pv
 brew install rename
 # brew install rhino
-brew install speedtest_cli
+# brew install speedtest_cli
 brew install ssh-copy-id
 brew install tree
 brew install webkit2png
 # brew install zopfli
+
+# casks
+brew cask install google-chrome
+brew cask install macvim
+brew cask install iterm2
+brew cask install hammerspoon
+brew cask install disk-inventory-x
+brew cask install vlc
+brew cask install virtualbox
+brew cask install atom
+
+brew cask install dropbox
+
+brew cask install webstorm
+brew cask install 1password
+brew cask install adobe-creative-cloud
+brew cask install tower
+brew cask install beyond-compare
 
 # Remove outdated versions from the cellar.
 brew cleanup
