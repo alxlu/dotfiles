@@ -115,6 +115,8 @@ brew install tree
 brew install webkit2png
 # brew install zopfli
 
+brew install vagrant
+
 # casks
 brew cask install google-chrome
 brew cask install macvim
