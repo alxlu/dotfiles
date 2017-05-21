@@ -122,7 +122,6 @@ brew install node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 brew install yarn
-brew install vagrant
 
 # casks
 brew cask install google-chrome
@@ -132,6 +131,7 @@ brew cask install hammerspoon
 brew cask install disk-inventory-x
 brew cask install vlc
 brew cask install virtualbox
+brew cask install vagrant
 brew cask install atom
 
 brew cask install dropbox
