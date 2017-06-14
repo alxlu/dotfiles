@@ -37,11 +37,12 @@ set -e
 
 timestamp=$(date +%Y%m%d%H%M%S)
 
-while getopts "hcend:D:Cl" opt; do
+while getopts "hcend:D:i:Cl" opt; do
   case $opt in
     h)
       echo "-c clear | -C clear all | -d custom named profile | -D delete custom named profile"
-      echo "-l list custom named profiles | -e edit default template | -n new profile | -h help"
+      echo "-l list custom named profiles | -i run a temp copy of named profile"
+      echo "-e edit default template | -n new profile | -h help"
       exit 0;
       ;;
     c)
@@ -59,6 +60,9 @@ while getopts "hcend:D:Cl" opt; do
       new_dir="$custom_dir/$OPTARG"
       exec open -na "Google Chrome" --args "--user-data-dir=$new_dir"
       exit 0
+      ;;
+    i)
+      fresh_dir="$custom_dir/$OPTARG"
       ;;
     D)
       new_dir="$custom_dir/$OPTARG"
