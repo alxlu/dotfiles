@@ -37,8 +37,13 @@ set -e
 
 timestamp=$(date +%Y%m%d%H%M%S)
 
-while getopts "cend:D:Cl" opt; do
+while getopts "hcend:D:Cl" opt; do
   case $opt in
+    h)
+      echo "-c clear | -C clear all | -d custom named profile | -D delete custom named profile"
+      echo "-l list custom named profiles | -e edit default template | -n new profile | -h help"
+      exit 0;
+      ;;
     c)
       rm -r $fresh_dir
       echo "cleared default profile"
