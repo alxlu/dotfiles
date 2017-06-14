@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p ~/Documents/Screenshots
+find -E ~/Desktop  -regex '.*Screen Shot.*png' -exec mv {} ~/Documents/Screenshots \;
+
