@@ -129,8 +129,9 @@ brew cask install iterm2
 brew cask install hammerspoon
 brew cask install disk-inventory-x
 brew cask install vlc
-brew cask install virtualbox
-brew cask install vagrant
+# brew cask install virtualbox
+# brew cask install vagrant
+brew cask install docker
 brew cask install atom
 
 brew cask install dropbox
