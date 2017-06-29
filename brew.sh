@@ -27,8 +27,7 @@ brew install bash
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
 
-brew tap homebrew/versions
-brew install bash-completion2
+brew install bash-completion@2
 
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
