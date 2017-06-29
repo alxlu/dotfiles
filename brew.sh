@@ -132,6 +132,8 @@ brew cask install vlc
 # brew cask install virtualbox
 # brew cask install vagrant
 brew cask install docker
+brew install docker-completion
+brew install docker-compose-completion
 brew cask install atom
 
 brew cask install dropbox
