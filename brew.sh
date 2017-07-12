@@ -45,10 +45,10 @@ brew install wget --with-iri
 # brew install narwhal
 
 # Install more recent versions of some macOS tools.
-brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
+brew install vim --with-override-system-vi
+brew install grep
+brew install openssh
+brew install screen
 # brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
@@ -111,14 +111,13 @@ brew install rename
 # brew install speedtest_cli
 brew install ssh-copy-id
 brew install tree
-brew install webkit2png
 # brew install zopfli
 
 # install node
 brew install node
 
 # install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 brew install yarn
 
