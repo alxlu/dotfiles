@@ -84,15 +84,15 @@ brew install nmap
 # brew install xz
 
 # Custom
-brew install autojump
 brew install fpp
 brew install jq
 brew install tmux
+brew install fasd
 
 #fzf
 brew reinstall --HEAD fzf
 # Install shell extensions
-# /usr/local/Cellar/fzf/HEAD/install
+/usr/local/Cellar/fzf/HEAD/install
 
 # Install other useful binaries.
 # brew install ack
