@@ -1,6 +1,9 @@
 - clean: ['~']
 
 - link:
+    ~/.config/karabiner:
+      create: true
+      path: homedir/karabiner
     ~/.aliases: homedir/aliases
     ~/.bash_profile: homedir/bash_profile
     ~/.bash_prompt: homedir/bash_prompt
