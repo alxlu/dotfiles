@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -r ~/.cdgbookmarks ]; then
+  filelist=$(cat ~/.cdgbookmarks | sed 's/#..*//g' | sed '/^\s*$/d')
+fi
+
+echo -e "$filelist" | sed '/^\s*$/d'
