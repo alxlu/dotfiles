@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias cmds="compgen -c | fzf"
+alias dev="newchrome -d dev"
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
