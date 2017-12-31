@@ -1,0 +1,1 @@
+/Users/alu/.config/fisherman/fasd/conf.d/__fasd_run.fish

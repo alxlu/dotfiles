@@ -32,7 +32,8 @@ brew install bash-completion@2
 # Switch to using brew-installed bash as default shell
 if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
   echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
+  echo '/usr/local/bin/fish' | sudo tee -a /etc/shells;
+  chsh -s /usr/local/bin/fish;
 fi;
 
 # Install `wget` with IRI support.
@@ -84,6 +85,7 @@ brew install nmap
 # brew install xz
 
 # Custom
+brew install fish
 brew install fpp
 brew install jq
 brew install tmux

@@ -22,6 +22,7 @@
     ~/.vim: homedir/vim/
     ~/.vimrc: homedir/vimrc
     ~/.wgetrc: homedir/wgetrc
+    ~/.config/fish: homedir/fish
 
 - shell:
   - git submodule init
