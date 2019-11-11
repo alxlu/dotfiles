@@ -50,7 +50,10 @@ syntax on
 set background=dark
 
 "Color scheme
-colorscheme seoul256
+"colorscheme seoul256
+colorscheme gotham
+hi Normal guibg=NONE ctermbg=NONE
+
 
 "Highlight current line
 set cul
