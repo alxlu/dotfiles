@@ -7,6 +7,7 @@ function sync() {
     rsync --exclude ".git/" \
             --exclude ".DS_Store" \
             --exclude "bootstrap.sh" \
+            --exclude "provision.sh" \
             --exclude "macos.sh" \
             --exclude "linkbin.sh" \
             --exclude "brew.sh" \
