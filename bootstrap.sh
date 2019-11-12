@@ -2,12 +2,15 @@
 
 DIR="$(dirname "${BASH_SOURCE}")";
 
-cd $DIR/homedir
+cd $DIR
 function sync() {
     rsync --exclude ".git/" \
             --exclude ".DS_Store" \
+            --exclude "bootstrap.sh" \
+            --exclude "macos.sh" \
+            --exclude "linkbin.sh" \
+            --exclude "brew.sh" \
             -avh --no-perms . ~;
-    source ~/.zshrc;
 }
 
 sync;
