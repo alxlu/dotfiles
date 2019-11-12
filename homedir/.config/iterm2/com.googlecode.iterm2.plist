@@ -323,13 +323,13 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1108 523 928 394 0 0 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 488 1920 690 0 0 1920 1177 </string>
+	<string>968 18 458 562 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>968 599 458 562 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>16 23 930 1138 0 0 1920 1177 </string>
+	<string>968 23 930 364 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1354 1433 1226 688 0 0 3840 2137 </string>
+	<string>968 797 930 364 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>968 599 458 562 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -2263,7 +2263,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
-		<string>{391, 950}</string>
+		<string>{674, 940}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2274,7 +2274,11 @@
 	<key>NoSyncLastTipTime</key>
 	<real>592177398.11352301</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>10</integer>
+	<integer>11</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>589326746.92302704</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>

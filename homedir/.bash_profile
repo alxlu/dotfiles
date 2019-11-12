@@ -49,3 +49,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(fasd --init auto)"
+
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -1,6 +1,17 @@
 "Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+"disabled for now..
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
+
+set guifont=Monoid:h10
+
+"vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
+
+call plug#end()
 
 "Turn off compatability mode
 set nocompatible
@@ -27,8 +38,8 @@ set mouse=a
 set number
 
 "Don't add empty newlines at end of files
-set binary
-set noeol
+"set binary
+"set noeol
 
 "Don't create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
@@ -71,7 +82,7 @@ set ignorecase
 set incsearch
 
 "Show invisible characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
+set listchars=tab:▸\ ,trail:·,nbsp:␣
 set list
 
 " Show the cursor position
@@ -89,9 +100,6 @@ set backspace=indent,eol,start
 "Find path settings
 set path=$PWD/**
 
-" show trailing spaces as dots
-set listchars+=trail:·
-
 "Key remaps
 nnoremap <C-Q> <C-L>
 nnoremap <C-J> <C-W><C-J>
@@ -104,7 +112,7 @@ set splitbelow
 set splitright
 
 "ctrlp
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/plugged/ctrlp.vim
 
 "ctrlp only searches working directory
 let g:ctrlp_working_path_mode = 0
@@ -117,4 +125,16 @@ set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
 ":autocmd Syntax * call SyntaxRange#Include('@begin=bash@', '@end=bash@', 'sh', 'NonText')
 
 "orgmode agenda
-let g:org_agenda_files = ['~/Dropbox/orgmode/*.org']
+"let g:org_agenda_files = ['~/Dropbox/orgmode/*.org']
+
+if has('nvim')
+  function! OnUIEnter(event)
+    let l:ui = nvim_get_chan_info(a:event.chan)
+    if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
+      if l:ui.client.name ==# 'Firenvim'
+        set guifont=Monoid:h10
+      endif
+    endif
+  endfunction
+  autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+endif

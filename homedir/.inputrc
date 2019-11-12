@@ -42,3 +42,6 @@ set convert-meta off
 # Menu Complete
 "\C-j": menu-complete
 "\C-k": menu-complete-backward
+
+# Vim mode
+set editing-mode vi
