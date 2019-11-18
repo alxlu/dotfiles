@@ -18,7 +18,7 @@ git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
 sudo apt install fzf -y
 
 # Install fasd
-sudo add-apt-repository ppa:aacebedo/fasda -y
+sudo add-apt-repository ppa:aacebedo/fasd -y
 sudo apt update
 sudo apt install fasd -y
 
