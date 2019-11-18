@@ -107,6 +107,13 @@ export ZPLUG_HOME=~/.zplug
 if [[ -n "${ZPLUG_HOME}" && -f $ZPLUG_HOME/init.zsh ]]; then
   source $ZPLUG_HOME/init.zsh
   zplug "wookayin/fzf-fasd"
+
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+  fi
   zplug load
 fi
 

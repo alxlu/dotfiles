@@ -25,6 +25,4 @@ sudo apt install fasd -y
 sudo chsh -s $(which zsh)
 
 exec zsh
-zplug install
-source ~/.zshrc
 
