@@ -8,7 +8,8 @@ sudo apt update
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Install zplug
-sudo apt install zplug -y
+export ZPLUG_HOME=~/.zplug
+git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
 
 # Install fzf
 sudo apt install fzf -y

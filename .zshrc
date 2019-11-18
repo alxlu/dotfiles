@@ -102,10 +102,10 @@ esac
 
 source $ZSH/oh-my-zsh.sh
 
-if type "zplug" > /dev/null; then
-  export ZPLUG_HOME=/usr/local/opt/zplug
-  source $ZPLUG_HOME/init.zsh
+export ZPLUG_HOME=~/.zplug
 
+if [[ -n "${ZPLUG_HOME}" && -f $ZPLUG_HOME/init.zsh ]]; then
+  source $ZPLUG_HOME/init.zsh
   zplug "wookayin/fzf-fasd"
   zplug load
 fi
