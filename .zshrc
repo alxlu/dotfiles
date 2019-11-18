@@ -68,31 +68,47 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export FZF_BASE=/path/to/fzf/install/dir
+# export FZF_BASE=/path/to/fzf/install/dir
+export FZF_BASE=$(which fzf)
 
 plugins=(
     vi-mode
     vscode
     git
-    osx
-    fzf
     dotenv
-    fasd
     iterm2
-    node
-    npm
     ssh-agent
  )
 
+if type "fzf" > /dev/null; then
+  plugins=($plugins fzf)
+fi
+
+if type "fasd" > /dev/null; then
+  plugins=($plugins fasd)
+fi
+
+if type "node" > /dev/null; then
+  plugins=($plugins node npm)
+fi
+
+case "$OSTYPE" in
+  darwin*)
+    plugins=($plugins osx)
+  ;;
+  linux*)
+  ;;
+esac
+
 source $ZSH/oh-my-zsh.sh
 
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+if type "zplug" > /dev/null; then
+  export ZPLUG_HOME=/usr/local/opt/zplug
+  source $ZPLUG_HOME/init.zsh
 
-zplug "wookayin/fzf-fasd"
-zplug load
-
-
+  zplug "wookayin/fzf-fasd"
+  zplug load
+fi
 
 # User configuration
 
