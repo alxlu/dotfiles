@@ -24,5 +24,5 @@ sudo apt install fasd -y
 
 sudo chsh -s $(which zsh)
 
+export ZPLUG_AUTO=true
 exec zsh
-
