@@ -146,3 +146,42 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+function vpn {
+  osascript \
+<<EOD
+  tell application "System Events" to tell process "GlobalProtect"
+    click menu bar item 1 of menu bar 2
+  end tell
+EOD
+}
+
+if [[ $OSTYPE == "darwin"* ]]; then
+  function tabc() {
+    NAME=$1; if [ -z "$NAME" ]; then NAME="Default"; fi
+    # if you have trouble with this, change
+    # "Default" to the name of your default theme
+    echo -e "\033]50;SetProfile=$NAME\a"
+  }
+
+  function tab-reset() {
+      NAME="Default"
+      echo -e "\033]50;SetProfile=$NAME\a"
+  }
+
+  function colorssh() {
+      if [[ -n "$ITERM_SESSION_ID" ]]; then
+          trap "tab-reset" INT EXIT
+          if [[ "$*" =~ "sibyl*" ]]; then
+              tabc Sibyl
+          else
+              tabc SSH
+          fi
+      fi
+      ssh $*
+  }
+  compdef _ssh tabc=ssh
+
+  alias ssh="colorssh"
+fi
+
