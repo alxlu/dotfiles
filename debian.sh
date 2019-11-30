@@ -18,9 +18,14 @@ git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
 sudo apt install fzf -y
 
 # Install fasd
-sudo add-apt-repository ppa:aacebedo/fasd -y
-sudo apt update
-sudo apt install fasd -y
+sudo apt install make unzip -y
+mkdir fasd_tmp
+cd fasd_tmp
+curl -LO https://github.com/clvv/fasd/zipball/1.0.1
+unzip -j 1.0.1
+make install
+cd ../
+rm -rf fasd_tmp
 
 sudo chsh -s $(which zsh)
 
