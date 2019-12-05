@@ -5,7 +5,7 @@ sudo -v
 sudo apt update
 
 # Install zsh
-apt install zsh -y
+sudo apt install zsh -y
 
 # Install oh-my-zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
