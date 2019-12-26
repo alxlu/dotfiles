@@ -23,6 +23,4 @@ cd compton
 make
 sudo make MANPAGES= install
 sudo apt-get install feh -y
-cd ~/Downloads
-curl -LO https://wallpaperplay.com/walls/full/9/3/2/126447.jpg
-feh --bg-fill ~/Downloads/126447.jpg
+feh --bg-fill ~/.wallpapers/bg.jpg
