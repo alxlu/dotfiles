@@ -17,7 +17,7 @@ exec xcape
 exec feh --bg-fill ~/.wallpapers/bg.jpg
 
 # Lock screen
-bindsym $mod+x exec i3lock -i ~/Downloads/lock.png
+bindsym $mod+x exec i3lock -i ~/.wallpapers/lock.png
 
 # Brightness
 bindsym XF86MonBrightnessUp exec light -A 10
