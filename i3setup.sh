@@ -24,3 +24,4 @@ make
 sudo make MANPAGES= install
 sudo apt-get install feh -y
 feh --bg-fill ~/.wallpapers/bg.jpg
+sudo apt-get install rofi -y
