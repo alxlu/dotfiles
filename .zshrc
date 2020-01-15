@@ -71,6 +71,9 @@ COMPLETION_WAITING_DOTS="true"
 # export FZF_BASE=/path/to/fzf/install/dir
 export FZF_BASE=$(which fzf)
 
+# Enagle ssh agent forwarding support
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 plugins=(
     vi-mode
     vscode
