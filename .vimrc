@@ -7,16 +7,17 @@ set guifont=Monoid:h10
 
 "vim-plug
 call plug#begin('~/.vim/plugged')
-
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
-
+Plug 'vimwiki/vimwiki'
+Plug 'morhetz/gruvbox'
+" Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 call plug#end()
 
 "Turn off compatability mode
 set nocompatible
-filetype off
+filetype plugin on
 filetype plugin indent on
+syntax on
 
 "Shows current typed command
 set showcmd
@@ -61,8 +62,9 @@ syntax on
 set background=dark
 
 "Color scheme
-"colorscheme seoul256
-colorscheme gotham
+" colorscheme seoul256
+" colorscheme gotham
+colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
 
@@ -127,14 +129,4 @@ set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
 "orgmode agenda
 "let g:org_agenda_files = ['~/Dropbox/orgmode/*.org']
 
-if has('nvim')
-  function! OnUIEnter(event)
-    let l:ui = nvim_get_chan_info(a:event.chan)
-    if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
-      if l:ui.client.name ==# 'Firenvim'
-        set guifont=Monoid:h10
-      endif
-    endif
-  endfunction
-  autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
-endif
+let g:vimwiki_folding='expr'
