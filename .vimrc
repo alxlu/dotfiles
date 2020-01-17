@@ -19,6 +19,11 @@ filetype plugin on
 filetype plugin indent on
 syntax on
 
+"bind nohl
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
+
 "Shows current typed command
 set showcmd
 
