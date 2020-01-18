@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 mkdir -p /tmp/feh
-feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' $HOME/screenshots/*.png
+feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' --action3 ';nautilus %F &' --action4 ';dragon %F --and-exit &' $HOME/screenshots/*.png
 
