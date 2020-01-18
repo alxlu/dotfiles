@@ -139,8 +139,12 @@ let g:vimwiki_folding='expr'
 
 let wiki_1 = {}
 let wiki_1.path = '/mnt/data/wikis/personal'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
 
 let wiki_2 = {}
 let wiki_2.path = '/mnt/data/wikis/development'
+let wiki_2.syntax = 'markdown'
+let wiki_2.ext = '.md'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
