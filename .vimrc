@@ -135,8 +135,6 @@ set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
 "let g:org_agenda_files = ['~/Dropbox/orgmode/*.org']
 
 "vimwiki
-let g:vimwiki_folding='expr'
-
 let wiki_1 = {}
 let wiki_1.path = '/mnt/data/wikis/personal'
 let wiki_1.syntax = 'markdown'
@@ -148,3 +146,4 @@ let wiki_2.syntax = 'markdown'
 let wiki_2.ext = '.md'
 
 let g:vimwiki_list = [wiki_1, wiki_2]
+"let g:vimwiki_folding='expr'
