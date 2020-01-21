@@ -71,7 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 # export FZF_BASE=/path/to/fzf/install/dir
 export FZF_BASE=$(which fzf)
 
-# Enagle ssh agent forwarding support
+# Enable ssh agent forwarding support
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 plugins=(
@@ -149,6 +149,10 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gal="mkdir -p /tmp/feh && feh -t --preload --scale-down -j /tmp/feh -E 128 -y 128 -W 1024 --caption-path captions -d --draw-tinted"
+alias xc="xclip -selection clipboard"
+alias xo="xclip -o -selection clipboard"
+alias xx='$(xclip -o -selection clipboard)'
 
 function vpn {
   osascript \
@@ -186,5 +190,12 @@ if [[ $OSTYPE == "darwin"* ]]; then
   compdef _ssh tabc=ssh
 
   alias ssh="colorssh"
+fi
+
+# load kitty completion
+if [[ $TERM == "xterm-kitty" ]]; then
+  autoload -Uz compinit
+  compinit
+  kitty + complete setup zsh | source /dev/stdin;
 fi
 
