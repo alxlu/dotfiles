@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround'
 " Plug 'glacambre/firenvim', { 'do': function('firenvim#install') }
 call plug#end()
 
