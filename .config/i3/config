@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 
 # autostarts
 exec --no-startup-id compton -b
@@ -164,6 +165,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (non-modal)
+bindsym $mod+$alt+j resize shrink width 10 px or 10 ppt
+bindsym $mod+$alt+k resize grow height 10 px or 10 ppt
+bindsym $mod+$alt+l resize shrink height 10 px or 10 ppt
+bindsym $mod+$alt+semicolon resize grow width 10 px or 10 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
