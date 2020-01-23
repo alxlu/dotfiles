@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+kitty -e ssh dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
+
+
