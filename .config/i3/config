@@ -24,6 +24,10 @@ bindsym $mod+x exec i3lock -i ~/.wallpapers/lock.png
 # Rofi window switcher
 bindsym $mod+space exec rofi -show window -theme Monokai
 
+# Brightness
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
 # Screenshots
 bindsym $mod+p exec import -window root ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
 bindsym --release $mod+o exec import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
