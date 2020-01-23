@@ -122,6 +122,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Launch wiki
+bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
+
+# Moving back and forth between workspaces
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
+bindsym $mod+shift+bracketleft move container to workspace prev
+bindsym $mod+shift+bracketright move container to workspace next
+bindsym $mod+backslash workspace back_and_forth
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
