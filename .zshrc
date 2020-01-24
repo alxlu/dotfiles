@@ -156,6 +156,7 @@ alias xx='$(xclip -o -selection clipboard)'
 
 alias feh="feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' --action3 ';nautilus %F &' --action4 ';dragon %F --and-exit &'"
 alias cfeh='feh --action2 ";convert -auto-orient $PWD/%F /tmp/clip.png && xclip -selection clipboard -t image/png -i /tmp/clip.png && notify-send -t 700 copied %F" --action1 ";realpath $(echo $PWD/%F) | xclip -selection clipboard -i" -j /tmp/feh -d --auto-rotate --preload -K captions'
+alias setwp="feh --action1 ';feh --bg-fill $(echo %F)' -d"
 
 
 function vpn {
