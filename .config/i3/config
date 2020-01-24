@@ -15,8 +15,8 @@ set $alt Mod1
 # autostarts
 exec --no-startup-id compton -b
 # exec setxkbmap -option altwin:swap_alt_win
-exec xcape
-exec feh --bg-fill ~/.wallpapers/bg.jpg
+exec --no-startup-id xcape
+exec --no-startup-id feh --bg-fill ~/.wallpapers/bg.jpg
 
 # Lock screen
 bindsym $mod+x exec i3lock -i ~/.wallpapers/lock.png
@@ -129,6 +129,15 @@ bindsym $mod+a focus parent
 # Launch wiki
 bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
 
+# Open settings
+bindsym $mod+$alt+backslash exec --no-startup-id i3-sensible-terminal -e vim $HOME/.config/i3/config
+
+# Launch browser
+bindsym $mod+Shift+b exec newc
+
+# Launch ranger
+bindsym $mod+g exec i3-sensible-terminal -e ranger
+
 # Moving back and forth between workspaces
 bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
@@ -217,9 +226,41 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        font pango:mono 10
+        position top
+        mode dock
+#        status_command i3blocks
+        colors {
+                #background #000000
+                #statusline #ffffff
+                separator #4b5262
+                background #2f343f
+                #statusline #2f343f
+                #focused_workspace  #6a0dad #000000 #ffffff
+                #inactive_workspace #888888 #000000
+                #focused_workspace  #454545 #225577 #ffffff
+                #inactive_workspace #454545 #212121 #ffffff
+                focused_workspace   #2f343f #bf616a #d8dee8
+                active_workspace    #2f343f #2f343f #d8dee8
+                inactive_workspace  #2f343f #2f343f #d8dee8
+                urgent_workspace    #2f343f #ebcb8b #2f343f
+        }
 }
 
 # i3-gaps settings
-for_window [class="^.*"] border pixel 0
-gaps inner 30
-gaps outer 20
+#for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
+gaps inner 20
+gaps outer 15 
+
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+
+# colour of border, background, text, indicator, and child_border
+#client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+#client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #898e97
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
