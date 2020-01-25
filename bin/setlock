@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+RES=$(xrandr | grep \* | awk '{print $1}')
+convert $@ -resize $RES^ -gravity center -extent $RES -blur 0x13 $HOME/.wallpapers/lock.png
