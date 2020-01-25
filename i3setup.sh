@@ -13,7 +13,7 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
-sudo apt-get install i3status dmenu
+sudo apt-get install i3status dmenu -y
 cd /tmp
 git clone https://github.com/tryone144/compton
 cd compton

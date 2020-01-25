@@ -8,10 +8,10 @@ sudo apt-get update
 sudo apt-get install zsh -y
 
 # Install oh-my-zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 # Install zplug
-export ZPLUG_HOME=~/.zplug
+export ZPLUG_HOME=$HOME/.zplug
 sudo apt-get install git -y
 git clone https://github.com/zplug/zplug.git $ZPLUG_HOME
 
