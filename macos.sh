@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# Check if SIP is properly disabled
+CSRSTATUS=$(csrutil status | grep 'Filesystem\|Debugging' | awk '{print $3}' | tr '\n' ':')
+
+if [ "$CSRSTATUS" = "disabled:disabled:" ]; then
+  echo "SIP is correctly disabled"
+else
+  echo "Restart computer and hold command + R while booting. Then run csrutil enable --without debug --without fs"
+  exit 1
+fi
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -22,6 +32,7 @@ brew install fzf
 
 brew cask install kitty
 brew cask install alfred
+brew install vim
 brew install rsync
 brew install mpv
 brew cask install visual-studio-code
