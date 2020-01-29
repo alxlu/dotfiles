@@ -30,6 +30,9 @@ brew install bat
 brew install ranger
 brew install choose-gui
 brew install fasd
+brew cask install karabiner-elements
+
+brew tap koekeishiya/formulae
 brew install yabai
 brew install skhd
 
@@ -41,6 +44,9 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
+
+# hide menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -72,7 +78,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 
-defaults write com.apple.dock autohide-delay -float 5
+defaults write com.apple.dock autohide-delay -float 3
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -100,5 +106,12 @@ defaults write com.apple.dock showhidden -bool true
 killall Dock
 killall Finder
 
+chmod +x $HOME/.config/yabai/yabairc
+chmod +x $HOME/.config/skhd/skhdrc
+
+sudo yabai --install-sa
 brew servces start skhd
 brew servces start yabai
+
+code --install-extension Shan.code-settings-sync
+sudo chown -R $(whoami) /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
