@@ -137,7 +137,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Launch wiki
-bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
+bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh root@dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
 
 # Open settings
 bindsym $mod+$alt+backslash exec --no-startup-id i3-sensible-terminal -e vim $HOME/.config/i3/config
