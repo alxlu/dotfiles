@@ -121,8 +121,8 @@ chmod +x $HOME/.config/yabai/yabairc
 chmod +x $HOME/.config/skhd/skhdrc
 
 sudo yabai --install-sa
-brew servces start skhd
-brew servces start yabai
+brew services start skhd
+brew services start yabai
 
 code --install-extension Shan.code-settings-sync
 sudo chown -R $(whoami) /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
