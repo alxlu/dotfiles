@@ -16,6 +16,11 @@ cmd -r [
   "kitty": skhd -k "ctrl - r"
 ]
 
+cmd - w [
+  "kitty": skhd -k "ctrl - w"
+  "code": skhd -k "ctrl - w"
+]
+
 cmd + shift - h [
   "kitty": skhd -k "ctrl + shift - h"
 ]
@@ -83,8 +88,8 @@ cmd + alt - w : yabai -m space --destroy
 
 # fast focus desktop
 alt - 0x30 : yabai -m space --focus recent
-alt - 0x21 : yabai -m space --focus prev
-alt - 0x1E : yabai -m space --focus next
+alt - 0x21 : yabai -m space --focus prev || yabai -m space --focus last
+alt - 0x1E : yabai -m space --focus next || yabai -m space --focus first
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
 alt - 3 : yabai -m space --focus 3
