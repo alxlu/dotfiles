@@ -25,8 +25,8 @@ bindsym $mod+x exec i3lock -i ~/.wallpapers/lock.png
 bindsym $mod+space exec rofi -show window -font 'Noto Sans 12' --dpi 120
 
 # Compton control
-bindsym $mod+Shift+grave exec --no-startup-id killall compton && compton -b --active-opacity 1
-bindsym $mod+grave exec --no-startup-id killall compton && compton -b
+bindsym $mod+Shift+grave exec --no-startup-id killall -q compton || true && compton -b --active-opacity 1
+bindsym $mod+grave exec --no-startup-id killall -q compton || true && compton -b
 
 # Brightness
 bindsym XF86MonBrightnessUp exec light -A 10
