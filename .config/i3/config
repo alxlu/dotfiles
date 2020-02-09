@@ -153,7 +153,7 @@ bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
 bindsym $mod+shift+bracketleft move container to workspace prev
 bindsym $mod+shift+bracketright move container to workspace next
-bindsym $mod+backslash workspace back_and_forth
+bindsym $mod+backslash exec --no-startup-id ~/bin/next_empty
 bindsym $mod+Tab workspace back_and_forth
 
 # Define names for default workspaces for which we configure key bindings later on.
