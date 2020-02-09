@@ -13,7 +13,10 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
-sudo apt-get install i3status dmenu -y
+sudo apt-get install dmenu -y
+sudo apt-get install --no-install-recommends -y i3blocks
+# i3blocks recommended deps sans i3-wm
+sudo apt-get install -y gawk acpi alsa-utils sysstat
 cd /tmp
 git clone https://github.com/tryone144/compton
 cd compton
