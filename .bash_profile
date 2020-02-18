@@ -1,5 +1,9 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$HOME/bin:$PATH";
+if which brew > /dev/null; then
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH";
+fi;
+
+export PATH=$HOME/bin:$PATH
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -50,4 +54,3 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(fasd --init auto)"
 
-export PATH="$HOME/.cargo/bin:$PATH"
