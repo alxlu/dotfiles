@@ -4,6 +4,8 @@ export PATH=$HOME/bin:/usr/local/bin:/snap/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export RCLONE_CONFIG=/mnt/data/shared/rclone.conf
+
 # lower keytimeout for addtional characters in sequence (helpful for vim mode)
 export KEYTIMEOUT=1
 
@@ -233,3 +235,4 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[5 q' ;}
+
