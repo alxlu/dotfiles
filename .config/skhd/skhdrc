@@ -1,5 +1,9 @@
 # open terminal
 alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+shift + alt - q [
+  * : yabai -m window --close
+  "kitty": skhd -k "shift + cmd - d"
+]
 
 # vim stuff
 cmd - d : skhd -k "ctrl - d"
@@ -12,8 +16,9 @@ cmd - c [
   "code": skhd -k "ctrl - c"
 ]
 
-cmd -r [
+cmd - r [
   "kitty": skhd -k "ctrl - r"
+  "code": skhd -k "ctrl - r"
 ]
 
 cmd - w [
@@ -23,6 +28,15 @@ cmd - w [
 
 cmd + shift - h [
   "kitty": skhd -k "ctrl + shift - h"
+]
+
+cmd + shift - v [
+  "kitty": skhd -k "cmd + v"
+]
+
+cmd - v [
+  "kitty": skhd -k "ctrl + v"
+  "code": skhd -k "ctrl + v"
 ]
 
 cmd + shift - p [
@@ -196,10 +210,10 @@ alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window border
-shift + alt - b : yabai -m window --toggle border
+# shift + alt - b : yabai -m window --toggle border
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
