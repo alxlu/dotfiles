@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [[ $_ != $0 ]]; then
+  export RCLONE_CONFIG=/mnt/data/shared/rclone.conf
+  echo Type in config pass:
+  read -s RCLONE_CONFIG_PASS
+  export RCLONE_CONFIG_PASS
+else
+  echo "Script must be sourced"
+  exit 1
+fi
