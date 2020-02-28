@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+next=$(/usr/bin/comm -13 <(i3-msg -t get_workspaces | jq '.[].num' | sort -u) <(seq 1 10 | sort -u) | head -n1)
+
+i3-msg workspace number $next

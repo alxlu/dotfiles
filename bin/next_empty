@@ -1,5 +1,0 @@
-#!/bin/bash
-
-space=$(comm -13 <(i3-msg -t get_workspaces | jq '.[].num' | sort -nu) <(seq 1 10 | sort -nu) | head -n 1)
-
-i3-msg workspace $space

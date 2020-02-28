@@ -19,6 +19,13 @@ exec --no-startup-id xcape
 exec --no-startup-id xcape -e 'Shift_L=Escape'
 exec --no-startup-id feh --bg-fill ~/.wallpapers/bg.jpg
 
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] resize set 1000 750
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_*"] move position center
+
 bindsym $mod+Shift+n floating toggle; sticky toggle; exec --no-startup-id hover right
 
 # Lock screen
@@ -39,7 +46,8 @@ bindsym XF86MonBrightnessDown exec light -U 10
 bindsym $mod+p exec import -window root ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
 bindsym --release $mod+o exec import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
 bindsym $mod+i exec xclip -selection clipboard -t image/png -i $(ls -d -1 -t ~/screenshots/*.png | head -n1)
-bindsym $mod+u exec feh_screenshots
+
+bindsym $mod+u exec --no-startup-id feh_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -78,6 +86,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
+
+# toggle scratchpad windows
+bindsym $mod+equal scratchpad show
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -140,7 +151,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Launch wiki
-bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh root@dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
+# bindsym $mod+shift+backslash exec --no-startup-id i3-sensible-terminal -e ssh root@dev.ssh.lol -t 'zsh -l -c "vim -c \"VimwikiIndex\""'
+bindsym $mod+shift+backslash exec --no-startup-id ddspawn vimwiki
 
 # Open settings
 bindsym $mod+$alt+backslash exec --no-startup-id i3-sensible-terminal -e vim $HOME/.config/i3/config
@@ -149,7 +161,10 @@ bindsym $mod+$alt+backslash exec --no-startup-id i3-sensible-terminal -e vim $HO
 bindsym $mod+Shift+b exec newc
 
 # Launch ranger
-bindsym $mod+g exec i3-sensible-terminal -e ranger
+# bindsym $mod+g exec i3-sensible-terminal -e ranger
+bindsym $mod+g exec --no-startup-id ddspawn lf
+bindsym $mod+n exec --no-startup-id ddspawn vinode
+bindsym $alt+space exec --no-startup-id ddspawn zsh
 
 # Moving back and forth between workspaces
 bindsym $mod+bracketleft workspace prev
