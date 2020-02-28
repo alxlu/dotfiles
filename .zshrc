@@ -164,7 +164,6 @@ alias cfeh='feh --action2 ";convert -auto-orient $PWD/%F /tmp/clip.png && xclip 
 alias setwp="feh --action1 ';feh --bg-fill $(echo %F) && cp $(echo %F) $HOME/.wallpapers/bg.jpg' --action2 ';setlock $(echo %F) && echo done' -d"
 
 
-
 function vpn {
   osascript \
 <<EOD
@@ -235,4 +234,10 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 # Use beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[5 q' ;}
+
+LFCD="$HOME/.config/lf/lfcd.sh"
+if [ -f "$LFCD" ]; then
+  source "$LFCD"
+  bindkey -s '^o' 'lfcd\n'
+fi
 
