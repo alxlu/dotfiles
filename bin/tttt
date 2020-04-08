@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+FILE=$(date +%4Y-%m-%d_%H%M%S)
+TTTT="/mnt/data/tttt"
+FOLDER=$(find $TTTT -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | rofi -dmenu -i)
+
+mkdir -p "$TTTT/$FOLDER"
+FPATH="$TTTT/$FOLDER"
+
+if [ ! -z $FPATH ] && [ -d "$FPATH" ]; then
+  curl -L -o $FPATH/$FILE "$(/usr/bin/xclip -o -selection clipboard)" 2>&1 | tee -a /tmp/tttt.log
+  EXT=$(grep "$(file -b --mime-type $FPATH/$FILE)" /etc/mime.types | awk '{print $2}')
+  echo $FPATH/$FILE.$EXT
+  mv $FPATH/$FILE $FPATH/$FILE.$EXT
+  notify-send -i $FPATH/$FILE.$EXT "$FPATH/$FILE.$EXT saved";
+else
+  notify-send "cancelled."
+fi
+
+

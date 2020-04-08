@@ -1,0 +1,17 @@
+#!/bin/sh
+
+while read file
+do
+  case "$1" in
+    "r")
+      echo "$SXIV_IMG" ;;
+    "t")
+      dragon "$file" ;;
+    "x")
+      echo rm "$file" ;;
+    "c")
+      echo xclip -selection clipboard -t image/png -i "$file" ;;
+    "d")
+      i3-sensible-terminal -e "/usr/bin/lf $file" ;;
+  esac
+done

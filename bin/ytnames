@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#cat /mnt/data/downloads/youtube/playlist | xargs -I {} printf "%s\t%s\n" "{}" $(youtube-dl -e {}) >> /mnt/data/downloads/youtube/test
+
+notify-send "getting names from playlist"
+for video in $(cat /mnt/data/downloads/youtube/playlist); do
+  name=$(youtube-dl -e $video)
+  result=$(printf "%s\t%s\n" $video $name)
+  echo $result
+  echo $result >> /mnt/data/downloads/youtube/test
+done;
+notify-send "done!"

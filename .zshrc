@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/snap/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$HOME/bin/i3scripts:/usr/local/bin:/snap/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -13,7 +13,7 @@ export KEYTIMEOUT=1
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="flazz"
+ZSH_THEME="simple"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -129,7 +129,7 @@ fi
 
 # User configuration
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -163,6 +163,9 @@ alias feh="feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip 
 alias cfeh='feh --action2 ";convert -auto-orient $PWD/%F /tmp/clip.png && xclip -selection clipboard -t image/png -i /tmp/clip.png && notify-send -t 700 copied %F" --action1 ";realpath $(echo $PWD/%F) | xclip -selection clipboard -i" -j /tmp/feh -d --auto-rotate --preload -K captions'
 alias setwp="feh --action1 ';feh --bg-fill $(echo %F) && cp $(echo %F) $HOME/.wallpapers/bg.jpg' --action2 ';setlock $(echo %F) && echo done' -d"
 
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 function vpn {
   osascript \

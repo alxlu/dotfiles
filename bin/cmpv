@@ -1,0 +1,5 @@
+#!/bin/bash
+
+VID=$(xclip -o)
+notify-send "Playing $VID"
+mpv $VID

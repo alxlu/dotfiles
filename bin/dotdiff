@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+nvim -d "$1" $(readlink -f "$1" | sed "s/\/home\/alex/\/mnt\/data\/shared\/dotfiles/g")

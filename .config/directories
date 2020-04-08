@@ -1,0 +1,8 @@
+h     ~/
+da    /mnt/data
+do    /mnt/data/shared/dotfiles
+sh    /mnt/data/shared
+cf    ~/.config
+mn    /mnt
+ss    ~/screenshots
+tm    /tmp

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-google-chrome-stable --user-data-dir=$(find $HOME/profiles -maxdepth 1 -mindepth 1 -type d | rofi -dmenu) --app=https://discordapp.com
+google-chrome-stable --user-data-dir=$(find $HOME/profiles -maxdepth 1 -mindepth 1 -type d | rofi -dmenu) --app=https://discordapp.com/channels/@me
 
