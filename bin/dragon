@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+dragon-drag-and-drop $@

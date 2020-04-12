@@ -1,17 +1,34 @@
 #!/bin/sh
 
+term() {
+  FILES=""
+  while read file
+  do
+    FILES="$FILES\n$file"
+  done
+  f=$(printf "$FILES" | sed 1d)
+  echo $f
+  export f
+  i3-sensible-terminal
+}
+
+case "$1" in 
+  "o")
+    term ;;
+esac;
+
 while read file
 do
   case "$1" in
     "r")
-      echo "$SXIV_IMG" ;;
+      echo "$file" ;;
     "t")
       dragon "$file" ;;
     "x")
-      echo rm "$file" ;;
+      trash-put "$file" ;;
     "c")
-      echo xclip -selection clipboard -t image/png -i "$file" ;;
+      xclip -selection clipboard -t image/png -i "$file"; notify-send "copied $file to clipboard" ;;
     "d")
-      i3-sensible-terminal -e "/usr/bin/lf $file" ;;
+      i3-sensible-terminal -e "lf" "$file" ;;
   esac
 done
