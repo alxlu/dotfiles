@@ -1,0 +1,33 @@
+#!/bin/sh
+
+CMD=$1
+TASK=$2
+DATE=$(date +%FT%T)
+
+case $CMD in
+  start)
+    if [ -z "$TASK" ]
+      then
+        echo "Missing task name."
+      else
+        echo "$DATE	START	$TASK" >> /mnt/data/timetracking.txt
+    fi
+    ;;
+  stop)
+    if [ -z "$TASK" ]
+      then
+        echo "Missing task name."
+      else
+        echo "$DATE	END	$TASK" >> /mnt/data/timetracking.txt
+    fi
+    ;;
+  stoplast)
+    LASTTASK=$(cat /mnt/data/timetracking.txt | grep START |tail -1 | awk -F"	" '{print $3}')
+    echo "$DATE	END	$LASTTASK" >> /mnt/data/timetracking.txt
+    ;;
+  *)
+    echo "Invalid command"
+    ;;
+esac
+
+cat /mnt/data/timetracking.txt | tail -1
