@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+find ~/screenshots -type f -exec ls -1t "{}" + | sxiv -i
+

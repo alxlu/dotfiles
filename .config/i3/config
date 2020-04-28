@@ -53,7 +53,9 @@ bindsym $mod+p exec import -window root ~/screenshots/$(date +"%Y-%m-%d_%H%M%S")
 bindsym --release $mod+o exec import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
 bindsym $mod+i exec xclip -selection clipboard -t image/png -i $(ls -d -1 -t ~/screenshots/*.png | head -n1)
 
-bindsym $mod+u exec --no-startup-id feh_screenshots
+# bindsym $mod+u exec --no-startup-id feh_screenshots
+# bindsym $mod+u exec --no-startup-id sxiv ~/screenshots
+bindsym $mod+u exec --no-startup-id sxiv_screenshots
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
