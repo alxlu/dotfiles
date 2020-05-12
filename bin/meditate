@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+TIME=$1
+KTIME=$(echo "$TIME + 0.7" | bc)
+MED_DIR=$HOME/profiles/meditation-timer
+
+mkdir -p $MED_DIR
+xscreensaver-command -exit
+timeout "$KTIME"m google-chrome-stable --user-data-dir=$MED_DIR --autoplay-policy=no-user-gesture-required --kiosk --app="file:///mnt/data/meditation-timer/index.html?time=$TIME"
+xscreensaver -nosplash &

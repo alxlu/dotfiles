@@ -3,31 +3,91 @@
 CMD=$1
 TASK=$2
 DATE=$(date +%FT%T)
+FILE=/mnt/data/timetracking.txt
+FUZZY=fzf
+
+start_task() {
+  if [ -z "$TASK" ]
+  then
+    echo "Missing task name."
+  else
+    echo "$DATE	START	$TASK" >> $FILE
+  fi
+}
+
+stop_task() {
+  if [ -z "$TASK" ]
+  then
+    echo "Missing task name."
+  else
+    echo "$DATE	END	$TASK" >> $FILE
+  fi
+}
+
+stop_last_task() {
+  LASTTASK=$(cat /mnt/data/timetracking.txt | grep START |tail -1 | awk -F"	" '{print $3}')
+  echo "$DATE	END	$LASTTASK" >> $FILE
+}
+
+get_task() {
+  TASK="$(cat $FILE | awk -F"\t" '{print $3}' | sort | uniq | $FUZZY)"
+}
+
+fzf_task() {
+  case $1 in
+    start)
+      get_task
+      start_task
+      echo "$(cat $FILE | tail -1)"
+      ;;
+    stop)
+      get_task
+      stop_task
+      echo "$(cat $FILE | tail -1)"
+      ;;
+    stoplast)
+      stop_last_task
+      echo "$(cat $FILE | tail -1)"
+      ;;
+    cancel)
+      echo "Cancelled"
+      ;;
+    show)
+      echo "$(cat $FILE)"
+      ;;
+    showlast)
+      echo "$(cat $FILE | tail -1)"
+      ;;
+    edit)
+      $EDITOR $FILE
+      ;;
+  esac
+}
+
 
 case $CMD in
   start)
-    if [ -z "$TASK" ]
-      then
-        echo "Missing task name."
-      else
-        echo "$DATE	START	$TASK" >> /mnt/data/timetracking.txt
-    fi
+    start_task
+    cat $FILE | tail -1
     ;;
   stop)
-    if [ -z "$TASK" ]
-      then
-        echo "Missing task name."
-      else
-        echo "$DATE	END	$TASK" >> /mnt/data/timetracking.txt
-    fi
+    stop_task
+    cat $FILE | tail -1
     ;;
   stoplast)
-    LASTTASK=$(cat /mnt/data/timetracking.txt | grep START |tail -1 | awk -F"	" '{print $3}')
-    echo "$DATE	END	$LASTTASK" >> /mnt/data/timetracking.txt
+    stop_last_task
+    cat $FILE | tail -1
+    ;;
+  show)
+    echo "Date/Time		Status	Task"
+    cat $FILE
+    ;;
+  showlast)
+    cat $FILE | tail -1
     ;;
   *)
-    echo "Invalid command"
+    OPT=$(printf "start\nstop\nstoplast\ncancel\nedit\nshowlast\nhow" | $FUZZY)
+    fzf_task $OPT
     ;;
 esac
 
-cat /mnt/data/timetracking.txt | tail -1

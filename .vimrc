@@ -4,6 +4,7 @@
 "execute pathogen#infect()
 
 set guifont=Monoid:h10
+let mapleader=" "
 
 "vim-plug
 call plug#begin('~/.vim/plugged')
@@ -233,10 +234,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>r <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <leader>p  :CocCommand prettier.formatFile<CR>
+nmap <leader>f  :CocCommand prettier.formatFile<CR>
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)

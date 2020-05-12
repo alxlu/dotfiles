@@ -154,6 +154,9 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sudo="sudo "
+alias t="tracktask"
+alias td="tmux detach-client -a"
 alias gal="mkdir -p /tmp/feh && feh -t --preload --scale-down -j /tmp/feh -E 128 -y 128 -W 1024 --caption-path captions -d --draw-tinted"
 alias xc="xclip -selection clipboard"
 alias xo="xclip -o -selection clipboard"
