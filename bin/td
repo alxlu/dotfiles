@@ -22,8 +22,12 @@ select_task() {
 }
 
 select_action() {
-  action=$(printf "date\nedit\nclose\ndelete\nshow\nprioritize\ncancel" | fzf --prompt="select action: " --header="$selected_tasks") 
+  action=$(printf "date\nedit\nclose\ndelete\nshow\nproject\nprioritize\ncancel" | fzf --prompt="select action: " --header="$selected_tasks") 
   case $action in
+    project)
+      project_id=$(todoist projects | fzf --prompt="select project: " --header="$selected_tasks" | awk '{print $1}')
+      echo "$selected_tasks" | awk '{print $1}' | xargs -n 1 todoist m -P "$project_id"
+      ;;
     edit)
       echo "editing the following tasks"
       echo "$selected_tasks"
@@ -73,5 +77,6 @@ select_action() {
   esac
 }
 
+todoist sync
 select_task
 select_action
