@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+select_task() {
+  TASKS=$(todoist l)
+  echo "$TASKS" | grep -n '^'
+  echo "Select Task Number (leave blank for fzf) or (q) for quick add"
+  read selection
+  case $selection in
+    q)
+      echo "enter quick add task:"
+      read task
+      todoist q "$task"
+      exit 0
+      ;;
+    ''|*[!0-9]*)
+      selected_tasks=$(echo "$TASKS" | fzf -m --prompt="pick task: ")
+      ;;
+    *)
+      selected_tasks=$(echo "$TASKS" | sed -n "$selection"p)
+      ;;
+  esac
+}
+
+select_action() {
+  action=$(printf "date\nedit\nclose\ndelete\nshow\nprioritize\ncancel" | fzf --prompt="select action: " --header="$selected_tasks") 
+  case $action in
+    edit)
+      echo "editing the following tasks"
+      echo "$selected_tasks"
+      echo "=================="
+      echo "$selected_tasks" | while read line 
+      do
+        echo $line
+        echo "new content: "
+        read content </dev/tty
+        todoist m -c "$content" $(echo $line | awk '{print $1}')
+        echo "=================="
+      done
+      ;;
+    prioritize)
+      clear
+      echo "$selected_tasks"
+      echo "------------------------------"
+      echo "change priority [1-4 default: 4](todoist m -p):"
+      read priority
+      echo "$selected_tasks" | awk '{print $1}' | xargs -n 1 todoist m -p "$priority"
+      ;;
+    date)
+      clear
+      echo "$selected_tasks"
+      echo "------------------------------"
+      echo "new date command (todoist -d):"
+      read datestr
+      echo "$selected_tasks" | awk '{print $1}' | xargs -n 1 todoist m -d "$datestr"
+      ;;
+    delete)
+      echo "$selected_tasks" | awk '{print $1}' | xargs -n 1 todoist d
+      ;;
+    close)
+      echo "$selected_tasks" | awk '{print $1}' | xargs -n 1 todoist c
+      ;;
+    show)
+      echo "=================="
+      echo "$selected_tasks" | awk '{print $1}'| while read line 
+      do
+        todoist show $line 
+        echo "=================="
+      done
+      ;;
+    *)
+      echo "cancelled"
+      ;;
+  esac
+}
+
+select_task
+select_action
