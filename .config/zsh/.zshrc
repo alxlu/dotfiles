@@ -6,9 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export PATH=$HOME/bin:$HOME/.local/bin:$HOME/bin/i3scripts:/usr/local/bin:/snap/bin:$PATH
-
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -30,23 +27,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # lower keytimeout for addtional characters in sequence (helpful for vim mode)
 export KEYTIMEOUT=1
-export EDITOR='nvim'
-
-alias sudo="sudo "
-alias t="tracktask"
-alias gal="mkdir -p /tmp/feh && feh -t --preload --scale-down -j /tmp/feh -E 128 -y 128 -W 1024 --caption-path captions -d --draw-tinted"
-alias xc="xclip -selection clipboard"
-alias xo="xclip -o -selection clipboard"
-alias xx='$(xclip -o -selection clipboard)'
-
-alias feh="feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' --action3 ';nautilus %F &' --action4 ';dragon %F --and-exit &'"
-alias cfeh='feh --action2 ";convert -auto-orient $PWD/%F /tmp/clip.png && xclip -selection clipboard -t image/png -i /tmp/clip.png && notify-send -t 700 copied %F" --action1 ";realpath $(echo $PWD/%F) | xclip -selection clipboard -i" -j /tmp/feh -d --auto-rotate --preload -K captions'
-alias setwp="feh --action1 ';feh --bg-fill $(echo %F) && cp $(echo %F) $HOME/.wallpapers/bg.jpg' --action2 ';setlock $(echo %F) && echo done' -d"
-
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
 export HISTFILE=$HOME/.zsh_history
+
+source $XDG_CONFIG_HOME/aliases
 
 zinit ice wait'0a' lucid
 zinit light zsh-users/zsh-autosuggestions
@@ -112,8 +95,10 @@ zsh-defer load_fasd
 
 # Basic auto/tab complete:
 load_tab_completion() {
+  autoload -U compinit
   zstyle ':completion:*' menu select
   zmodload zsh/complist
+  compinit
   _comp_options+=(globdots)		# Include hidden files.
 }
 
