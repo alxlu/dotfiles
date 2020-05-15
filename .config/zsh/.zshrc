@@ -45,6 +45,9 @@ zinit light zdharma/history-search-multi-word
 zinit ice wait'0d' lucid
 zinit light wookayin/fzf-fasd
 
+zinit ice wait'0e' lucid
+zinit light changyuheng/zsh-interactive-cd
+
 zplugin light romkatv/zsh-defer
 
 bindkey -v
