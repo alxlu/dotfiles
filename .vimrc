@@ -1,14 +1,10 @@
-"Pathogen
-"disabled for now..
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-"execute pathogen#infect()
-
 set guifont=Monoid:h10
 let mapleader=" "
 
 "vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
@@ -18,13 +14,55 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 " TypeScript
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo'}
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 call plug#end()
 
 "Turn off compatability mode
 set nocompatible
+
+let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.8} }
+let $FZF_DEFAULT_COMMAND = 'fd -HL -t f -t l'
+let g:fzf_buffers_jump = 1
+
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>d :Commands<CR>
+nnoremap <leader>lb :BLines<CR>
+nnoremap <leader>l :Lines<CR>
+" autocmd BufRead,BufNewFile *.md :Goyo
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+" autocmd! User GoyoEnter Limelight
+" autocmd! User GoyoLeave Limelight!
+" autocmd BufRead,BufNewFile *.md s:goyo_enter()
+nnoremap <leader>g  :Goyo<CR>
+
+nnoremap <leader>ll :Limelight!!<CR>
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
 
 set relativenumber
 filetype plugin on
@@ -135,12 +173,6 @@ nnoremap <C-H> <C-W><C-H>
 "Change split behavior
 set splitbelow
 set splitright
-
-"ctrlp
-set runtimepath^=~/.vim/plugged/ctrlp.vim
-
-"ctrlp only searches working directory
-let g:ctrlp_working_path_mode = 0
 
 "ignore certain directories and files
 set wildignore+=*/node_modules/*,*/.git/*,*/tmp/*,*.so,*.swp,*.zip
