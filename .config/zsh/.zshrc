@@ -84,7 +84,6 @@ echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
 load_lfcd() {
-  TERMINFO=
   LFCD="$HOME/.config/lf/lfcd.sh"
   if [ -f "$LFCD" ]; then
     source "$LFCD"
