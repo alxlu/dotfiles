@@ -1,0 +1,36 @@
+# Backlight
+XF86MonBrightness{Up,Down}
+	xbacklight -{inc,dec} 10; pkill -RTMIN+10 blocks
+
+# Audiokeys
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+11 blocks
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}0.4; pkill -RTMIN+11 blocks
+	# amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
+
+# Screenshots
+Print
+	import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
+shift + Print
+	import -window root ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
+super + Print
+	xclip -selection clipboard -t image/png -i $(ls -d -1 -t ~/screenshots/*.png | head -n1)
+super + shift + Print
+	feh_screenshots
+
+# Reload config
+super + F5
+	pkill -SIGUSR1 sxhkd
+
+# Lock Screen
+shift + super + x
+	i3lock -i ~/.wallpapers/lock.png
+
+# Browser
+XF86Search
+	google-chrome-stable
+
+# Window Switcher
+alt + space
+	rofi -show window -font 'PragmataPro Liga 13' --dpi 120
