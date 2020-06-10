@@ -16,3 +16,9 @@ alias vi="nvim"
 alias vim="nvim"
 
 alias tmux="tmux -u -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../../"
+alias .....="cd ../../../../../"
+
