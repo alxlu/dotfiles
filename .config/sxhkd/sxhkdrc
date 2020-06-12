@@ -9,6 +9,12 @@ XF86Audio{Raise,Lower}Volume
 	pactl set-sink-volume @DEFAULT_SINK@ {+,-}0.4; pkill -RTMIN+11 blocks
 	# amixer sset Master 5%{+,-}; pkill -RTMIN+10 blocks
 
+# Picom
+super + grave
+	killall -q picom || true && sleep 0.1 && picom -b --experimental-backends
+super + shift + grave
+	killall -q picom || true && sleep 0.1 && picom -b --active-opacity 1 --experimental-backends
+
 # Screenshots
 Print
 	import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
