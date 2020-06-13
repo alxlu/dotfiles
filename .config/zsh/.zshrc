@@ -42,9 +42,6 @@ export ZSH_AUTOSUGGEST_COMPLETION_IGNORE="z *"
 zinit ice wait'0b' lucid
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice wait'0c' lucid
-zinit light zdharma/history-search-multi-word
-
 zinit ice wait'0d' lucid
 zinit light wookayin/fzf-fasd
 
@@ -109,3 +106,9 @@ load_tab_completion() {
 }
 
 zsh-defer load_tab_completion
+
+source_fzf() {
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+}
+zsh-defer source_fzf
