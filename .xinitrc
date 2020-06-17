@@ -1,10 +1,9 @@
-# [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-# [[ -f ~/.Xresources ]] && xmodmap ~/.Xmodmap
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 compton -b --experimental-backends
 feh --bg-fill ~/.wallpapers/bg.jpg
 xcape
 xset r rate 200 125 
-setxkbmap -option altwin:swap_alt_win
+# setxkbmap -option altwin:swap_alt_win
 xmodmap ~/.Xmodmap
 sxhkd &
 dwmblocks &
