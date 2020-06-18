@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-compton -b --experimental-backends
+picom -b --experimental-backends
 feh --bg-fill ~/.wallpapers/bg.jpg
 xcape
 xset r rate 200 125 
