@@ -27,10 +27,13 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # lower keytimeout for addtional characters in sequence (helpful for vim mode)
 export KEYTIMEOUT=1
+
+# History
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=1000
 setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
 
 source $XDG_CONFIG_HOME/aliases
 
