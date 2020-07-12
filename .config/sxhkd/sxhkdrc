@@ -16,13 +16,13 @@ super + shift + grave
 	killall -q picom || true && sleep 0.1 && picom -b --active-opacity 1 --experimental-backends
 
 # Screenshots
-F6
+alt + p
 	import -frame ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
-shift + F6
+alt + shift + p
 	import -window root ~/screenshots/$(date +"%Y-%m-%d_%H%M%S").png
-super + F6
+super + alt + p
 	xclip -selection clipboard -t image/png -i $(ls -d -1 -t ~/screenshots/*.png | head -n1)
-super + shift + F6
+super + alt + u
 	feh_screenshots
 
 # Reload config

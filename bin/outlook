@@ -1,0 +1,3 @@
+#!/bin/bash
+
+google-chrome-stable --user-data-dir=$HOME/profiles/outlook --app=https://outlook.office365.com/mail/inbox

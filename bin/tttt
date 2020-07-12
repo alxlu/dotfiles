@@ -12,7 +12,7 @@ if [ ! -z $FPATH ] && [ -d "$FPATH" ]; then
   EXT=$(grep "$(file -b --mime-type $FPATH/$FILE)" /etc/mime.types | awk '{print $2}')
   echo $FPATH/$FILE.$EXT
   mv $FPATH/$FILE $FPATH/$FILE.$EXT
-  notify-send -i $FPATH/$FILE.$EXT "$FPATH/$FILE.$EXT saved";
+  notify-send -i $FPATH/$FILE.$EXT "New File" "$FPATH/$FILE.$EXT saved";
 else
   notify-send "cancelled."
 fi

@@ -4,6 +4,7 @@ TTTT="/mnt/data/tttt"
 FPATH=$(find $TTTT -maxdepth 1 -mindepth 1 -type d | rofi -dmenu -i)
 
 if [ -d "$FPATH" ]; then
-  feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' --action3 ';nautilus %F &' --action4 ';dragon %F --and-exit &' $FPATH
+  # feh --reverse -d -K captions -j /tmp/feh --action1 ';echo %F | xclip -selection clipboard -i' --action2 ';xclip -selection clipboard -t image/png -i $(echo %F)' --action3 ';nautilus %F &' --action4 ';dragon %F --and-exit &' $FPATH
+  sxiv $FPATH
 fi
 
