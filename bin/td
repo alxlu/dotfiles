@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+IFS=""
 
 select_task() {
-  TASKS=$(todoist l)
-  echo "$TASKS" | grep -n '^'
+  TASKS="$(todoist l)"
+  echo -e "$TASKS" | grep --color=always -n '^'
   echo "Select Task Number (leave blank for fzf) or (q) for quick add"
   read selection
   case $selection in
@@ -17,6 +18,24 @@ select_task() {
       ;;
     *)
       selected_tasks=$(echo "$TASKS" | sed -n "$selection"p)
+      ;;
+  esac
+}
+
+select_task_color() {
+  TASKS="$(todoist l)"
+  todoist l
+  echo "[Enter] to modify or (q) for quick add"
+  read selection
+  case $selection in
+    q)
+      echo "enter quick add task:"
+      read task
+      todoist q "$task"
+      exit 0
+      ;;
+    *)
+      selected_tasks=$(echo "$TASKS" | fzf -m --prompt="pick task: ")
       ;;
   esac
 }
@@ -78,5 +97,5 @@ select_action() {
 }
 
 todoist sync
-select_task
+select_task_color
 select_action
