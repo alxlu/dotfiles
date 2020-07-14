@@ -1,8 +1,8 @@
-Xft.dpi: 120
+Xft.dpi: 100
 Xft.antialias: true
 Xft.hinting: true
 
-*.font: PragmataPro Mono Liga:pixelsize=22:antialias=true:autohint=true
+*.font: PragmataPro Mono Liga:pixelsize=18:antialias=true:autohint=true
 *.borderpx: 20
 
 ! ------------------------------------------------------------------------------
@@ -10,6 +10,7 @@ Xft.hinting: true
 ! ------------------------------------------------------------------------------
 rofi.font: PragmataPro Mono Liga 13
 rofi.color-enabled: true
+rofi.dpi: 120
 rofi.color-window: #2e3440, #2e3440, #2e3440
 rofi.color-normal: #2e3440, #d8dee9, #2e3440, #2e3440, #bf616a
 rofi.color-active: #2e3440, #b48ead, #2e3440, #2e3440, #93e5cc

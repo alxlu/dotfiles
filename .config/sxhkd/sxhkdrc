@@ -40,3 +40,6 @@ XF86Search
 # Window Switcher
 alt + space
 	rofi -show window -font 'PragmataPro Liga 13' --dpi 120
+
+super + semicolon
+	xdotool mousemove --window $(xdotool getwindowfocus) 0 0
